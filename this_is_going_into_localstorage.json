@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "scores": {
+        "1": {
+            "exp":{
+                "accscore": 97.61,
+                "dscore": 0.912,
+                "fc": true
+            }
+        }
+
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "songs": [
+        {
+            "id": 1,
+            "name": "Tutorial",
+            "artist": "RISK",
+            "difficulty": {
+                "exp": 1
+            }
+        },
+        {
+            "id": 2,
+            "name": "RED and BLUE",
+            "artist": "RISK",
+            "difficulty": {
+                "exp": 2
+            }
+        },
+        {
+            "id": 3,
+            "name": "One Way Street",
+            "artist": "siqlo",
+            "difficulty": {
+                "exp": 1,
+                "rsn": 3,
+                "clx": 7
+            }
+        }
+    ]
+}

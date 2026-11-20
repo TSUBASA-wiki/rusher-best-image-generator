@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8"/>
+        <title>just testing</title>
+    </head>
+    <body>
+        <div class="song-container">
+        </div>
+        <template id="song_card">
+            <div class="song_card">
+                <span class="title"></span>
+                <span class="artist"></span>
+                <img class="jacket"/>
+                <div class="difficulty-list"></div>
+            </div>
+        </template>
+        <template id="difficulty">
+            <div class="difficulty">
+                <span class="difficulty_name"></span>
+                <label>Accuracy Score:<input type="number" class="accscore" placeholder="0-100%" min="0" max="100" step="any" /></label>
+                <label>D-Score:<input type="number" class="dscore" placeholder="0-1%" min="0" max="1" step="any" /></label>
+                <label> FC:<input type="checkbox" class="fc" /></label>
+            </div>
+        </template>
+        <script src="script.js"></script>
+    </body>
+</html>
