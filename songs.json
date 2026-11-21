@@ -1,11 +1,11 @@
 {
     "songs": [
-        {
+        {   
             "id": 1,
             "name": "Tutorial",
             "artist": "RISK",
             "difficulty": {
-                "exp": 1
+                "Exposition": "1"
             }
         },
         {
@@ -13,7 +13,7 @@
             "name": "RED and BLUE",
             "artist": "RISK",
             "difficulty": {
-                "exp": 2
+                "Exposition": "2"
             }
         },
         {
@@ -21,9 +21,571 @@
             "name": "One Way Street",
             "artist": "siqlo",
             "difficulty": {
-                "exp": 1,
-                "rsn": 3,
-                "clx": 7
+                "Exposition": "1",
+                "Rising": "3",
+                "Climax": "7"
+            }
+        },
+        {
+            "id": 4,
+            "name": "OFF OF MY MIND!!!",
+            "artist": "SmileMoonZ",
+            "difficulty": {
+                "Exposition": "1+",
+                "Rising": "5",
+                "Climax": "8",
+                "Descent": "11+"
+            }
+        },
+        {
+            "id": 5,
+            "name": "IRIS",
+            "artist": "RISK",
+            "difficulty": {
+                "Exposition": "2",
+                "Rising": "6",
+                "Climax": "12",
+                "Descent": "14+"
+            }
+        },
+        {
+            "id": 6,
+            "name": "The Next Arcady",
+            "artist": "Sephid",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "7",
+                "Climax": "14"
+            }
+        },
+        {
+            "id": 7,
+            "name": "TELLING_A_MACHINE_TO_EXIST_IS_A_SIN",
+            "artist": "RISK",
+            "difficulty": {
+                "Exposition": "2",
+                "Rising": "5",
+                "Climax": "9"
+            }
+        },
+        {
+            "id": 8,
+            "name": "ALWAYS VIP",
+            "artist": "Teserex",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "6",
+                "Climax": "11",
+                "Descent": "14"
+            }
+        },
+        {
+            "id": 9,
+            "name": "the world of scarlet",
+            "artist": "OfficialAz3",
+            "difficulty": {
+                "Exposition": "2",
+                "Rising": "7",
+                "Climax": "12"
+            }
+        },
+        {
+            "id": 10,
+            "name": "HORIZON CHARTREUSE",
+            "artist": "AZALI",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "7",
+                "Climax": "12"
+            }
+        },
+        {
+            "id": 11,
+            "name": "Aeronautica",
+            "artist": "PTB10",
+            "difficulty": {
+                "Exposition": "2",
+                "Rising": "7",
+                "Climax": "12+"
+            }
+        },
+        {
+            "id": 12,
+            "name": "Fake = Me",
+            "artist": "Shaderism",
+            "difficulty": {
+                "Exposition": "2+",
+                "Rising": "7",
+                "Climax": "12+"
+            }
+        },
+        {
+            "id": 13,
+            "name": "Step it",
+            "artist": "Shirobon",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "9",
+                "Climax": "14"
+            }
+        },
+        {
+            "id": 14,
+            "name": "PRISMATIC HYPERSPHERE",
+            "artist": "hivemind & proto1k",
+            "difficulty": {
+                "Exposition": "3+",
+                "Rising": "8",
+                "Climax": "14"
+            }
+        },
+        {
+            "id": 15,
+            "name": "Catharsis",
+            "artist": "Lyfer",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "9+",
+                "Climax": "15",
+                "Descent": "16"
+            }
+        },
+        {
+            "id": 16,
+            "name": "Space Rain",
+            "artist": "Palette",
+            "difficulty": {
+                "Exposition": "2",
+                "Rising": "6",
+                "Climax": "11",
+                "Descent": "15"
+            }
+        },
+        {
+            "id": 17,
+            "name": "Dance with Silence",
+            "artist": "Camellia",
+            "difficulty": {
+                "Exposition": "2",
+                "Rising": "7+",
+                "Climax": "12+"
+            }
+        },
+        {
+            "id": 18,
+            "name": "SURREAL",
+            "artist": "RISK",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "7",
+                "Climax": "12",
+                "Descent": "15"
+            }
+        },
+        {
+            "id": 19,
+            "name": "Revival",
+            "artist": "Franky Ngo",
+            "difficulty": {
+                "Rising": "10",
+                "Climax": "12"
+            }
+        },
+        {
+            "id": 20,
+            "name": "I WANNA BOUNCE WITH U",
+            "artist": "DJ BROTUS",
+            "difficulty": {
+                "Exposition": "4+",
+                "Rising": "9",
+                "Climax": "13"
+            }
+        },
+        {
+            "id": 21,
+            "name": "Trailblazer",
+            "artist": "Zammu, wyntr",
+            "difficulty": {
+                "Exposition": "4+",
+                "Rising": "8+",
+                "Climax": "14",
+                "Descent": "16"
+            }
+        },
+        {
+            "id": 22,
+            "name": "Chartreuse Green",
+            "artist": "t+pazolite",
+            "difficulty": {
+                "Exposition": "5+",
+                "Rising": "10",
+                "Climax": "13+"
+            }
+        },
+        {
+            "id": 23,
+            "name": "ZIERA",
+            "artist": "RISK",
+            "difficulty": {
+                "Exposition": "6",
+                "Rising": "11",
+                "Climax": "14+"
+            }
+        },
+        {
+            "id": 24,
+            "name": "YOUR LOVE",
+            "artist": "Teserex ft. GenericMD",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "7+",
+                "Climax": "13"
+            }
+        },
+        {
+            "id": 25,
+            "name": "Avallonis",
+            "artist": "The Musical Ghost",
+            "difficulty": {
+                "Exposition": "4+",
+                "Rising": "11",
+                "Climax": "14+"
+            }
+        },
+        {
+            "id": 26,
+            "name": "CARDIN∀LITY",
+            "artist": "CryoChem",
+            "difficulty": {
+                "Exposition": "4+",
+                "Rising": "9",
+                "Climax": "15"
+            }
+        },
+        {
+            "id": 27,
+            "name": "FINALITY",
+            "artist": "SmileMoonZ",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "10",
+                "Climax": "15+"
+            }
+        },
+        {
+            "id": 28,
+            "name": "INTENTIONS",
+            "artist": "intention.",
+            "difficulty": {
+                "Exposition": "8",
+                "Rising": "12+",
+                "Climax": "15"
+            }
+        },
+        {
+            "id": 29,
+            "name": "universe",
+            "artist": "Proto.1k",
+            "difficulty": {
+                "Exposition": "5",
+                "Rising": "10",
+                "Climax": "13"
+            }
+        },
+        {
+            "id": 30,
+            "name": "Galaxy World",
+            "artist": "PYKAMIA",
+            "difficulty": {
+                "Exposition": "2",
+                "Rising": "5",
+                "Climax": "10"
+            }
+        },
+        {
+            "id": 31,
+            "name": "Thoughts of drowning",
+            "artist": "quorbital",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "8",
+                "Climax": "11"
+            }
+        },
+        {
+            "id": 32,
+            "name": "Belle de Nuit",
+            "artist": "Kurokotei feat. AKA",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "7+",
+                "Climax": "12"
+            }
+        },
+        {
+            "id": 33,
+            "name": "WATAGASHI RUSH",
+            "artist": "takehirotei & SiLiS",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "9",
+                "Climax": "13"
+            }
+        },
+        {
+            "id": 34,
+            "name": "Exodus",
+            "artist": "Franky",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "8",
+                "Climax": "14"
+            }
+        },
+        {
+            "id": 35,
+            "name": "DIVINITY DISSONANT",
+            "artist": "AZALI",
+            "difficulty": {
+                "Exposition": "4+",
+                "Rising": "9",
+                "Climax": "13+"
+            }
+        },
+        {
+            "id": 36,
+            "name": "Yukigafuru",
+            "artist": "Project Skylate",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "8+",
+                "Climax": "14"
+            }
+        },
+        {
+            "id": 37,
+            "name": "SPORADIC WORMHOLE",
+            "artist": "Krasper2",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "9",
+                "Climax": "14"
+            }
+        },
+        {
+            "id": 38,
+            "name": "Yukisarashi",
+            "artist": "SiLiS",
+            "difficulty": {
+                "Exposition": "3+",
+                "Rising": "6+",
+                "Climax": "14+"
+            }
+        },
+        {
+            "id": 39,
+            "name": "Of",
+            "artist": "quorbital",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "8",
+                "Climax": "15"
+            }
+        },
+        {
+            "id": 40,
+            "name": "Null",
+            "artist": "AlphaTux",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "8",
+                "Climax": "15",
+                "Descent": "16"
+            }
+        },
+        {
+            "id": 41,
+            "name": "Bounded Quietude",
+            "artist": "Finite Limit vs SiLiS",
+            "difficulty": {
+                "Exposition": "4+",
+                "Rising": "12+",
+                "Climax": "15+"
+            }
+        },
+        {
+            "id": 42,
+            "name": "Houen Ranka",
+            "artist": "Lalot. vs Night Yard",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "7",
+                "Climax": "15",
+                "Descent": "16"
+            }
+        },
+        {
+            "id": 43,
+            "name": "Lyrith -迷宮リリス-",
+            "artist": "LeaF",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "8+",
+                "Climax": "15",
+                "Descent": "16"
+            }
+        },
+        {
+            "id": 44,
+            "name": "Agilion",
+            "artist": "LeaF",
+            "difficulty": {
+                "Exposition": "5",
+                "Rising": "8",
+                "Climax": "16"
+            }
+        },
+        {
+            "id": 45,
+            "name": "SKiBIDI SLiCΞRS",
+            "artist": "Wyvern vs Franky",
+            "difficulty": {
+                "Exposition": "5",
+                "Rising": "9",
+                "Climax": "16"
+            }
+        },
+        {
+            "id": 46,
+            "name": "WORLD RESET",
+            "artist": "RISK",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "8",
+                "Climax": "16"
+            }
+        },
+        {
+            "id": 47,
+            "name": "Reboot Beat",
+            "artist": "Chroma",
+            "difficulty": {
+                "Exposition": "2",
+                "Rising": "7",
+                "Climax": "12"
+            }
+        },
+        {
+            "id": 48,
+            "name": "sink to the deep sea world",
+            "artist": "Chroma",
+            "difficulty": {
+                "Exposition": "5",
+                "Rising": "10+",
+                "Climax": "15+",
+                "Descent": "14+"
+            }
+        },
+        {
+            "id": 49,
+            "name": "WANWAN SONG",
+            "artist": "Chroma",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "7",
+                "Climax": "12"
+            }
+        },
+        {
+            "id": 50,
+            "name": "Dark Sheep",
+            "artist": "Chroma",
+            "difficulty": {
+                "Exposition": "7",
+                "Rising": "12",
+                "Climax": "14+",
+                "Descent": "15+"
+            }
+        },
+        {
+            "id": 51,
+            "name": "Monday Night Monsters",
+            "artist": "FinnMK",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "7",
+                "Climax": "11+",
+                "Descent": "14+"
+            }
+        },
+        {
+            "id": 52,
+            "name": "Skylate's Halloween Electro-Swing Spook-taculaire!",
+            "artist": "Project Skylate",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "7+",
+                "Climax": "13"
+            }
+        },
+        {
+            "id": 53,
+            "name": "Wishing you a very H4RDC0RE Christmas! (With Project Skylate)",
+            "artist": "Project Skylate",
+            "difficulty": {
+                "Exposition": "4+",
+                "Rising": "8+",
+                "Climax": "15"
+            }
+        },
+        {
+            "id": 54,
+            "name": "Nerezza",
+            "artist": "Jack Gibson",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "6",
+                "Climax": "13"
+            }
+        },
+        {
+            "id": 55,
+            "name": "Darkness Dueling",
+            "artist": "Jack Gibson",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "7",
+                "Climax": "14"
+            }
+        },
+        {
+            "id": 56,
+            "name": "Those Who Fight",
+            "artist": "Jack Gibson",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "8",
+                "Climax": "15"
+            }
+        },
+        {
+            "id": 57,
+            "name": "Move Faster!",
+            "artist": "Accept_Gub",
+            "difficulty": {
+                "Exposition": "4",
+                "Rising": "8",
+                "Climax": "14"
+            }
+        },
+        {
+            "id": 58,
+            "name": "EVACUATE!",
+            "artist": "Accept_Gub, GatoDeveloper",
+            "difficulty": {
+                "Exposition": "3",
+                "Rising": "8+",
+                "Climax": "14"
             }
         }
     ]
