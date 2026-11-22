@@ -11,7 +11,7 @@ async function loadJSON() {
 
 function calculate_rating(original_cc, original_acc, original_d) {
   if (original_cc.includes("+")){
-    var cc = parseFloat(original_cc + 0.7) || 0;
+    var cc = parseFloat(original_cc) + 0.7 || 0;
   } else {
     var cc = parseFloat(original_cc) || 0;
   }
@@ -66,26 +66,68 @@ async function init() {
 }
 
 function update_localstorage(event) {
-    const row = event.target.closest(".difficulty")
-    const songid = row.dataset.songId
-    const difficulty = row.dataset.songDiff
-    const rating_field = row.querySelector(".rating")
-    const constant = row.querySelector(".difficulty_constant").textContent
-    const field = event.target.classList[0]
-    if (savedscores[songid] == null) {
-        savedscores[songid] = {}
-    }
-    if (savedscores[songid][difficulty] == null) {
-        savedscores[songid][difficulty] = {}
-    }
-    if (event.target.type === "checkbox"){
-        savedscores[songid][difficulty][field] = event.target.checked
-    } else {
-        savedscores[songid][difficulty][field] = event.target.value
-    }
-    localStorage.setItem("datas", JSON.stringify(savedscores))
-    rating_field.textContent = calculate_rating(constant, savedscores[songid][difficulty]["accscore"], savedscores[songid][difficulty]["dscore"]).toFixed(2)
+  const row = event.target.closest(".difficulty")
+  const songid = row.dataset.songId
+  const difficulty = row.dataset.songDiff
+  const rating_field = row.querySelector(".rating")
+  const constant = row.querySelector(".difficulty_constant").textContent
+  const field = event.target.classList[0]
+  if (savedscores[songid] == null) {
+    savedscores[songid] = {}
+  }
+  if (savedscores[songid][difficulty] == null) {
+    savedscores[songid][difficulty] = {}
+  }
+  if (event.target.type === "checkbox"){
+    savedscores[songid][difficulty][field] = event.target.checked
+  } else {
+    savedscores[songid][difficulty][field] = event.target.value
+  }
+  localStorage.setItem("datas", JSON.stringify(savedscores))
+  rating_field.textContent = calculate_rating(constant, savedscores[songid][difficulty]["accscore"], savedscores[songid][difficulty]["dscore"]).toFixed(2)
 }
 
+function calculate_rating_sum(){
+  const rating_elements = document.querySelectorAll("#song-container .rating")
+  const the_ratings = []
+  for (const the_span of rating_elements){
+    if (the_span.textContent == "") {
+      continue;
+    }
+    const rating = parseFloat(the_span.textContent) || 0;
+    the_ratings.push(rating)
+    }
+  the_ratings.sort((a, b) => b - a)
+  let best_songs = the_ratings.slice(0, 30)
+  const rating_sum = best_songs.reduce((total, rating) => total + rating, 0)
+  console.log(best_songs)
+  return rating_sum
+}
 
+function generate_image(){
+  const rating_elements = document.querySelectorAll("#song-container .rating")
+  const the_ratings = []
+  for (const the_span of rating_elements){
+    const rating = parseFloat(the_span.textContent) || 0;
+    if (rating <= 0) {
+      continue;
+    }
+    const row = the_span.closest(".difficulty")
+    const card = the_span.closest(".song_card")
+    const songid = row.dataset.songId
+    const difficulty = row.dataset.songDiff
+    const constant = row.querySelector(".difficulty_constant").textContent
+    the_ratings.push({
+      songId: songid,
+      title: card.querySelector(".title").textContent,
+      difficulty: difficulty,
+      constant: constant,
+      jacket: card.querySelector(".jacket").src,
+      rating: rating
+    })
+  }
+  const best_songs = the_ratings.sort((a, b) => b.rating - a.rating)
+  console.log(calculate_rating_sum())
+  console.log(best_songs)
+}
 init()
