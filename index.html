@@ -2,26 +2,135 @@
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
-        <title>just testing</title>
+        <title>RUSHER Rating Tool</title>
+        <style>
+            #song-container{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .song_card{
+                display: flex;
+                flex-direction: column;
+                width: 40rem;
+                max-width: 100%;
+                border: 1px solid #000000;
+                border-radius: 0.25rem;
+                gap: 12px;
+                padding: 0.75rem;
+                box-sizing: border-box;
+            }
+            .song_information{
+                display: flex;
+                justify-content: space-between;
+                gap: 12px;
+                align-items: center;
+                width: 100%;
+            }
+            .song_texts{
+                display: flex;
+                flex-direction: column;
+                min-width: 0;
+                flex: 1;
+            }
+            .song_charts{
+                padding: 0.5rem;
+                flex: 1;
+            }
+            .title{
+                text-align: center; font-size: x-large; font-weight: bold; min-width: 0;
+            }
+            .artist{
+                text-align: center; font-size: medium;
+            }
+            .jacket {
+                object-fit: cover;
+                flex-shrink: 0;
+                width: 100px;
+                height: 100px;
+                border-radius: 0.25rem;
+            }
+            .difficulty{
+                display: grid;
+                grid-template-columns: 5rem 2rem 7.5rem 7.5rem 7.5rem 1fr;
+                align-items: center;
+                gap: 10px;
+            }
+            .accscore{
+                width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+            .dscore{
+                width:100%;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+            .rating{
+                text-align: right;
+                font-weight: bold;
+                font-variant-numeric: tabular-nums;
+                line-height: 1;
+            }
+            .difficulty label{
+                display: flex;
+            }
+            .difficulty-name{
+                text-align: left;
+                font-weight: bold;
+                line-height: 1;
+            }
+            .difficulty-constant{
+                text-align: center;
+                font-variant-numeric: tabular-nums;
+                line-height: 1;
+            }
+            .difficulty[data-song-diff="Exposition"]{
+                background-color: #95bdfc
+            }
+            .difficulty[data-song-diff="Rising"]{
+                background-color: #eafa39
+            }
+            .difficulty[data-song-diff="Climax"]{
+                background-color: #f0542d
+            }
+            .difficulty[data-song-diff="Descent"]{
+                background-color: #dcbbe0
+            }
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+            input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+        </style>
     </head>
     <body>
         <div id="song-container">
         </div>
         <template id="song_card">
             <div class="song_card">
-                <span class="title"></span><br/>
-                <span class="artist"></span><br/>
-                <img class="jacket" width="100" height="100"/><br/>
-                <div class="difficulty-list"></div>
+                <div class="song_information">
+                    <div class="song_texts">
+                        <span class="title"></span>
+                        <span class="artist"></span>
+                    </div>
+                    <img class="jacket"/>
+                </div>
+                <div class="song_charts"></div>
             </div>
         </template>
         <template id="difficulty">
             <div class="difficulty">
                 <span class="difficulty_name"></span>
                 <span class="difficulty_constant"></span>
-                <label>Accuracy Score:<input type="number" class="accscore" placeholder="0-100%" min="0" max="100" step="any" /></label>
-                <label>D-Score:<input type="number" class="dscore" placeholder="0-1%" min="0" max="1" step="any" /></label>
+                <label>Score:<input type="number" class="accscore" placeholder="0-100%" min="0" max="100" step="any" />+</label>
+                <label><input type="number" class="dscore" placeholder="0-1%" min="0" max="1" step="any" />%</label> 
                 <label>FC:<input type="checkbox" class="fc" /></label>
+                <span class="rating"></span>
             </div>
         </template>
         <script src="script.js"></script>

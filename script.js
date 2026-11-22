@@ -9,6 +9,33 @@ async function loadJSON() {
     }  
 }
 
+function calculate_rating(original_cc, original_acc, original_d) {
+  if (original_cc.includes("+")){
+    var cc = parseFloat(original_cc + 0.7) || 0;
+  } else {
+    var cc = parseFloat(original_cc) || 0;
+  }
+  var acc = parseFloat(original_acc) || 0;
+  var d = parseFloat(original_d) || 0;
+  if (acc < 70) {
+    var m =  -7
+  }
+  if (70 <= acc && acc <= 84) {
+	var m = (84 - acc) / 20 * -7
+  }
+  if (84 <= acc && acc <= 86) {
+    var m = 0
+  }
+  if (86 < acc && acc < 100) {
+    var m = ((acc - 86) / 8) ** 3
+  }
+  if (acc === 100) {
+    var m = 8
+  }
+  var rating = (cc + m) * 100 * (1 + d / 2) / 30
+  return rating
+}
+
 async function init() {
     const songslist = await loadJSON()
     var template_songcard = document.getElementById("song_card")
@@ -29,8 +56,9 @@ async function init() {
                 clone_difficultycard.querySelector(".accscore").value = savedscores[songdata.id][difficulty]["accscore"]
                 clone_difficultycard.querySelector(".dscore").value = savedscores[songdata.id][difficulty]["dscore"]
                 clone_difficultycard.querySelector(".fc").checked = savedscores[songdata.id][difficulty]["fc"]
+                clone_difficultycard.querySelector(".rating").textContent = calculate_rating(constant, savedscores[songdata.id][difficulty]["accscore"], savedscores[songdata.id][difficulty]["dscore"]).toFixed(2)
             }
-            clone_songcard.appendChild(clone_difficultycard)
+            clone_songcard.querySelector(".song_charts").appendChild(clone_difficultycard)
         }
         document.getElementById("song-container").appendChild(clone_songcard)
     }
@@ -41,6 +69,8 @@ function update_localstorage(event) {
     const row = event.target.closest(".difficulty")
     const songid = row.dataset.songId
     const difficulty = row.dataset.songDiff
+    const rating_field = row.querySelector(".rating")
+    const constant = row.querySelector(".difficulty_constant").textContent
     const field = event.target.classList[0]
     if (savedscores[songid] == null) {
         savedscores[songid] = {}
@@ -54,6 +84,8 @@ function update_localstorage(event) {
         savedscores[songid][difficulty][field] = event.target.value
     }
     localStorage.setItem("datas", JSON.stringify(savedscores))
+    rating_field.textContent = calculate_rating(constant, savedscores[songid][difficulty]["accscore"], savedscores[songid][difficulty]["dscore"]).toFixed(2)
 }
+
 
 init()
