@@ -76,12 +76,12 @@
             .difficulty label{
                 display: flex;
             }
-            .difficulty-name{
+            .difficulty_name{
                 text-align: left;
                 font-weight: bold;
                 line-height: 1;
             }
-            .difficulty-constant{
+            .difficulty_constant{
                 text-align: center;
                 font-variant-numeric: tabular-nums;
                 line-height: 1;
@@ -98,6 +98,33 @@
             .difficulty[data-song-diff="Descent"]{
                 background-color: #dcbbe0
             }
+            .image_difficulty_name[data-song-diff="Exposition"]{
+                color: #95bdfc
+            }
+            .image_difficulty_name[data-song-diff="Rising"]{
+                color: #eafa39
+            }
+            .image_difficulty_name[data-song-diff="Climax"]{
+                color: #f0542d
+            }
+            .image_difficulty_name[data-song-diff="Descent"]{
+                color: #dcbbe0
+            }
+            #img_container{
+                width: 1800px;
+                height: 3000px;
+                background-color: black;
+            }
+            #img_best_songs{
+                display: grid;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                box-sizing: border-box;
+            }
+            .image_jacket{
+                box-sizing: border-box;
+                width: 100px;
+                height: 100px;
+            }
             input[type=number] {
                 -moz-appearance: textfield;
             }
@@ -110,6 +137,10 @@
     </head>
     <body>
         <div id="song-container">
+        </div>
+        <div id="img-container">
+            <div id="img_player_info"></div>
+            <div id="img_best_songs"></div>
         </div>
         <template id="song_card">
             <div class="song_card">
@@ -133,7 +164,30 @@
                 <span class="rating"></span>
             </div>
         </template>
+        <template id="player_info">
+            <div class="player_info">
+                <span class="player_name"></span>
+                <span class="player_rating"></span>
+            </div>
+        </template>
+        <template id="song_ranks">
+            <div class="rank_image_card">
+                <div class="rank_jacket">
+                    <img class="image_jacket">
+                </div>
+                <div class="rank_datas">
+                    <span class="image_title"></span>
+                    <span class="image_rank"></span>
+                    <span class="image_accscore"></span>
+                    <span class="image_dscore"></span>
+                    <span class="image_rating"></span>
+                    <span class="image_difficulty_name"></span>
+                    <span class="image_constant"></span>
+                </div>
+            </div>
+        </template>
         <button type="button" onclick="generate_image()">Generate Image</button> 
+        <input type="text" id="playername_input" placeholder="Player Name">
         <script src="script.js"></script>
     </body>
 </html>

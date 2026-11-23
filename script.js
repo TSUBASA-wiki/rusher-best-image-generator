@@ -114,6 +114,8 @@ function generate_image(){
     }
     const row = the_span.closest(".difficulty")
     const card = the_span.closest(".song_card")
+    const accscore = row.querySelector(".accscore").value
+    const dscore = row.querySelector(".dscore").value
     const songid = row.dataset.songId
     const difficulty = row.dataset.songDiff
     const constant = row.querySelector(".difficulty_constant").textContent
@@ -123,11 +125,41 @@ function generate_image(){
       difficulty: difficulty,
       constant: constant,
       jacket: card.querySelector(".jacket").src,
+      accscore: accscore,
+      dscore: dscore,
       rating: rating
     })
   }
+  const template_playerinfo = document.getElementById("player_info")
+  const clone_template_playerinfo = template_playerinfo.content.cloneNode(true)
+  clone_template_playerinfo.querySelector(".player_name").textContent = document.getElementById("playername_input").value
+  clone_template_playerinfo.querySelector(".player_rating").textContent = calculate_rating_sum()
+  document.getElementById("img_player_info").appendChild(clone_template_playerinfo)
+  const template_rankcard = document.getElementById("song_ranks")
   const best_songs = the_ratings.sort((a, b) => b.rating - a.rating)
-  console.log(calculate_rating_sum())
-  console.log(best_songs)
+  const top_30 = best_songs.slice(0, 30) 
+  for (const [rank, data] of Object.entries(top_30)){
+    const clone_rankcard = template_rankcard.content.cloneNode(true) 
+    clone_rankcard.querySelector(".image_title").textContent = data.title
+    clone_rankcard.querySelector(".image_rank").textContent = parseFloat(rank) + 1
+    clone_rankcard.querySelector(".image_accscore").textContent = data.accscore
+    clone_rankcard.querySelector(".image_dscore").textContent = data.dscore
+    clone_rankcard.querySelector(".image_rating").textContent = data.rating
+    clone_rankcard.querySelector(".image_difficulty_name").textContent = data.difficulty
+    clone_rankcard.querySelector(".image_difficulty_name").dataset.songDiff = data.difficulty
+    clone_rankcard.querySelector(".image_constant").textContent = data.constant
+    clone_rankcard.querySelector(".image_jacket").src = data.jacket
+    if (parseFloat(data.accscore) === 100){
+      if (parseFloat(data.dscore) === 1){
+        clone_rankcard.querySelector(".image_jacket").style = "border: 5px solid red; border-image: linear-gradient(to right, #f0207a, #0f3cff); border-image-slice: 1;"
+      } else {
+        clone_rankcard.querySelector(".image_jacket").style = "border: 5px solid red; border-image: linear-gradient(to right, #d4ff00, #ff8c00); border-image-slice: 1;"
+      }
+    }
+    if (data.accscore < 100 && data.fc === true){
+      clone_rankcard.querySelector(".image_jacket").style  = "border: 5px solid #00aeff; border-image-slice: 1;"
+    }
+    document.getElementById("img_best_songs").appendChild(clone_rankcard)
+  }
 }
 init()
