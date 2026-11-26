@@ -56,6 +56,14 @@ async function init() {
                 clone_difficultycard.querySelector(".accscore").value = savedscores[songdata.id][difficulty]["accscore"]
                 clone_difficultycard.querySelector(".dscore").value = savedscores[songdata.id][difficulty]["dscore"]
                 clone_difficultycard.querySelector(".fc").checked = savedscores[songdata.id][difficulty]["fc"]
+                if (parseFloat(clone_difficultycard.querySelector(".dscore").value) === 1){
+                  clone_difficultycard.querySelector(".accscore").value = 100
+                  clone_difficultycard.querySelector(".accscore").disabed = true
+                }
+                if (parseFloat(clone_difficultycard.querySelector(".accscore").value) === 100){
+                  clone_difficultycard.querySelector(".fc").checked = true
+                  clone_difficultycard.querySelector(".fc").disabled = true
+                }
                 clone_difficultycard.querySelector(".rating").textContent = calculate_rating(constant, savedscores[songdata.id][difficulty]["accscore"], savedscores[songdata.id][difficulty]["dscore"]).toFixed(2)
             }
             clone_songcard.querySelector(".song_charts").appendChild(clone_difficultycard)
@@ -78,11 +86,33 @@ function update_localstorage(event) {
   if (savedscores[songid][difficulty] == null) {
     savedscores[songid][difficulty] = {}
   }
+  if (parseFloat(event.target.value) === 100 && field === "accscore"){
+    row.querySelector(".fc").checked = true
+    savedscores[songid][difficulty]["fc"] = true
+    row.querySelector(".fc").disabled = true
+  }
+  if ((parseFloat(event.target.value) < 100 || event.target.value === "") && field === "accscore"){
+    row.querySelector(".fc").disabled = false
+  }
+  if (parseFloat(event.target.value) === 1 && field === "dscore"){
+    row.querySelector(".accscore").value = 100
+    savedscores[songid][difficulty]["accscore"] = 100
+    row.querySelector(".accscore").disabled = true
+    row.querySelector(".fc").checked = true
+    savedscores[songid][difficulty]["fc"] = true
+    row.querySelector(".fc").disabled = true
+  }
+  if ((parseFloat(event.target.value) < 1 || event.target.value === "") && field === "dscore"){
+    row.querySelector(".accscore").disabled = false
+    row.querySelector(".fc").disabled = false
+  }
+
   if (event.target.type === "checkbox"){
     savedscores[songid][difficulty][field] = event.target.checked
   } else {
     savedscores[songid][difficulty][field] = event.target.value
   }
+
   localStorage.setItem("datas", JSON.stringify(savedscores))
   rating_field.textContent = calculate_rating(constant, savedscores[songid][difficulty]["accscore"], savedscores[songid][difficulty]["dscore"]).toFixed(2)
 }
@@ -116,6 +146,7 @@ function generate_image(){
     const card = the_span.closest(".song_card")
     const accscore = row.querySelector(".accscore").value
     const dscore = row.querySelector(".dscore").value
+    const fc = row.querySelector(".fc").checked
     const songid = row.dataset.songId
     const difficulty = row.dataset.songDiff
     const constant = row.querySelector(".difficulty_constant").textContent
@@ -127,6 +158,7 @@ function generate_image(){
       jacket: card.querySelector(".jacket").src,
       accscore: accscore,
       dscore: dscore,
+      fc: fc,
       rating: rating
     })
   }
@@ -156,7 +188,7 @@ function generate_image(){
         clone_rankcard.querySelector(".image_jacket").style = "border: 5px solid red; border-image: linear-gradient(to right, #d4ff00, #ff8c00); border-image-slice: 1;"
       }
     }
-    if (data.accscore < 100 && data.fc === true){
+    else if (data.fc === true || data.fc === "true"){
       clone_rankcard.querySelector(".image_jacket").style  = "border: 5px solid #00aeff; border-image-slice: 1;"
     }
     document.getElementById("img_best_songs").appendChild(clone_rankcard)
