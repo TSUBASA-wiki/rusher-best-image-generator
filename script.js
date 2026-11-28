@@ -193,5 +193,9 @@ function generate_image(){
     }
     document.getElementById("img_best_songs").appendChild(clone_rankcard)
   }
+  const generatebutton = document.getElementById("generatebutton")
+  generatebutton.hidden = ""
+  const downloadbutton = document.getElementById("downloadbutton").content.cloneNode(true)
+  document.appendChild(downloadbutton)
 }
 init()

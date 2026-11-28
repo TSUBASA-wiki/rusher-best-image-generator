@@ -3,6 +3,20 @@
     <head>
         <meta charset="utf-8"/>
         <title>RUSHER Rating Tool</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <script>
+        const onClickDownload = () => {
+        const target = document.getElementById("img-container");
+        if (target) {
+          html2canvas(target).then((canvas) => {
+            const downloadLink = document.createElement("a");
+            downloadLink.href = canvas.toDataURL("image/png");
+            downloadLink.download = "target.png";
+            downloadLink.click();
+          });
+        }
+      };      
+    </script>
         <style>
             #song-container{
                 display: flex;
@@ -111,7 +125,7 @@
             }
             #img-container{
                 width: 1200px;
-                height: 900px;
+                height: 1200px;
                 background-color: rgba(0, 255, 128, 0.709);
             }
             #img_best_songs{
@@ -126,23 +140,50 @@
                 flex-wrap: nowrap;
                 min-width: none;
             }
+            .player_info{
+                font-size: x-large;
+                font-weight: bold;
+                align-self: center;
+                text-align: center;
+                display: block;
+            }
             .image_jacket{
                 box-sizing: border-box;
                 width: 100px;
                 height: 100px;
             }
             .rank_jacket{
-                margin-left: 80px;
+                align-self: center;
 
             }
             .image_title{
                 display: block;
-                text-align: left;
+                text-align: center;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 text-wrap: nowrap;
                 min-width: 0px;
-                margin-left: 50px;
+                align-self: center;
+                font-weight: bold;
+            }
+            .ohmygod{
+                text-align: center;
+                align-self: center;
+                display: block;
+                font-weight: bold;
+            }
+            .image_rating{
+                font-weight: bold;
+            }
+            .score_stuff_i_guess{
+                text-align: center;
+                align-self: center;
+                display: block;
+            }
+            .i_might_be_the_worst_css_user_ever{
+                text-align: center;
+                align-self: center;
+                display: block;
             }
             input[type=number] {
                 -moz-appearance: textfield;
@@ -189,8 +230,8 @@
         </template>
         <template id="player_info">
             <div class="player_info">
-                <span class="player_name"></span>
-                <span class="player_rating"></span>
+                <label>Player Name:</label><span class="player_name"></span><br>
+                <label>Rating:</label><span class="player_rating"></span>
             </div>
         </template>
         <template id="song_ranks">
@@ -202,16 +243,25 @@
                     <span class="image_title"></span>
                 </div>
                 <div class="rank_otherstuff">
-                    <span class="image_rank"></span>
-                    <span class="image_accscore"></span>
-                    <span class="image_dscore"></span>
-                    <span class="image_rating"></span>
-                    <span class="image_difficulty_name"></span>
-                    <span class="image_constant"></span>
+                    <label class="ohmygod">#<span class="image_rank"></span></label>
+                    <div class="score_stuff_i_guess">
+                        <label>Score</label>
+                        <label><span class="image_accscore"></span>%+</label>
+                        <label><span class="image_dscore"></span>%</label><br>
+                    </div>
+                    <div class="i_might_be_the_worst_css_user_ever">
+                        <span class="image_difficulty_name"></span>
+                        <span class="image_constant"></span>
+                        <label>Rating:</label>
+                        <span class="image_rating"></span>
+                    </div>
                 </div>
             </div>
         </template>
-        <button type="button" onclick="generate_image()">Generate Image</button> 
+        <template id="downloadbutton">
+            <button type="button" onclick="onClickDownload()">Download Image</button>
+        </template>
+        <button type="button" onclick="generate_image()" id="generatebutton">Generate Image</button> 
         <input type="text" id="playername_input" placeholder="Player Name">
         <script src="script.js"></script>
     </body>
